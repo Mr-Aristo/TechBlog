@@ -1,0 +1,30 @@
+﻿@using EntityLayer.Concrete
+@model List<Notification>
+@{
+    ViewData["Title"] = "AllNotifications";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+
+<h1>Уведомления</h1>
+
+<table class="table table-primary">
+    <tr>
+        <th>#</th>
+        <th>Уведомление</th>
+        <th>Дата</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.NotificationID</td>
+            <td>@item.NotificationDetails</td>
+            <td>@item.NotificationDate.ToLongTimeString()</td>
+
+        </tr>
+
+
+    }
+</table>
+

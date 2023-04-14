@@ -1,0 +1,27 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+
+@{   
+        Layout = null;
+ }
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+
+<table class = "table table-bordered">
+    <tr>
+     <th>ID</th>
+     <th>Название Категории</th>
+     <th>Статус</th>
+     <th>Подробности</th>
+     <th>Удалить</th>
+     </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CategoryID</td>
+            <td>@item.CategoryName</td>
+            <td>@item.CategoryStatus</td>
+            <td><a href="#" class = "btn btn-warning">Подробности</a></td>
+            <td><a href="#" class = "btn btn-danger">Удалить</a></td>
+        </tr>
+    }
+</table>

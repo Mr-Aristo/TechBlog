@@ -1,0 +1,44 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+
+@model IPagedList<EntityLayer.Concrete.Category>
+@*Using ile erisim saglayamadik bu yuzden veri tipi olarak full path yolladik.*@
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Список Категорий</h1>
+
+<table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th>Название Категории</th>
+        <th>Делать Пассивно</th>
+        <th>Делать Активно</th>
+        <th>Редактировать</th>
+        <th>Удалить</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CategoryID</td>
+            <td>@item.CategoryName</td>
+            <td><a href="#" class="btn btn-danger">Passive</a></td>
+            <td><a href="#" class="btn btn-primary">Active</a></td>
+            <td><a href="#" class="btn btn-info">Edit</a></td>
+            <td><a href="/Admin/Category/CategoryDelete/@item.CategoryID" id="Deletebtn" onclick="return confirm('Вы уверены, что хотите удалить категорию?');" class="btn btn-danger">Delete</a></td>
+         @* href olan adresimizde ../CategoryDelete/.. kismi viewi olmayan controller icinde bulunan fonksiyonumuz.*@
+         @* Bir butonla ayni sayfada isleme yapmak istiyorsak bu sekilde kullana biliriz. akctive passive yapma gibi*@
+        </tr>
+
+    }
+</table>
+<a href="/Admin/Category/AddCategory/" class="btn btn-primary"> Новая Категория </a>
+<br />
+<br/>
+
+@Html.PagedListPager((IPagedList)Model,page=> Url.Action("Index",new {page})) 
+@*Bukisimda bir yonlendirme islemi yaptik. Herdefasinda indexe page parametresiyele gidecek*@ 
+ 

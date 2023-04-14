@@ -1,0 +1,28 @@
+﻿@model EntityLayer.Concrete.Category
+
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Добавить Категорию</h1>
+
+@using (Html.BeginForm("AddCategory", "Category", FormMethod.Post)) // Form metod post oldiginda calisacak kisim. Post olmazsa bu isleme girilmeyecek.Bu sebeple controllerda 2 adet action metod var.
+{
+    //Title icin textbox olusturduk ve validasyon islemini cagirdik.
+    <h4 class="font-weight-normal mb-3"> @Html.Label("Название Категории")</h4>
+    @Html.TextBoxFor(x=>x.CategoryName,new{@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.CategoryName)
+    <br />
+
+    <h4 class="font-weight-normal mb-3">@Html.Label("Описание Категории")</h4>
+    @Html.TextAreaFor(x=>x.CategoryDescription,10,3,new{@class="form-control"})
+    // 10 ve 3 kismi boyut atamasi icin
+    @Html.ValidationMessageFor(x=>x.CategoryDescription)
+    <br />
+    <br />
+
+    <button class="btn btn-info">Сохранить Категорию</button>
+
+}
+

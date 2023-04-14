@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "BlogListExcel";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>BlogListExcel</h1>
+<br />
+
+
+<a href="/Admin/Blog/ExportDynamicExcelBlogList" class="btn btn-primary"> Download Excel List </a>
+
+
+@*
+<button class="btn btn-primary" onclick="DowloadExcelBlogList">Download Excel List</button>
+
+
+Bu js koduyla controller icindeki fonksiyonu initiate ettik.
+
+<script>
+    function DowloadExcelBlogList(){
+        window.open("/Admin/Blog/ExportStaticExcelBlogList");
+
+    }
+</script>
+*@

@@ -1,0 +1,43 @@
+﻿@model UserSignInViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<section class="main-content-w3layouts-agileits">
+    <div class="container">
+
+        <h3 class="tittle">Войдите в Систему</h3>
+
+        <div class="row inner-sec">
+
+            <div class="login p-5 bg-light mx-auto mw-100">
+
+                <form method="post"> @*method kismi controllerdaki [HttpPost ] kismina denk*@
+                    <div class="form-group">
+                        <label for="exampleInputEmail1 mb-2">Почта</label>
+                        <input type="text" class="form-control"  asp-for="@Model.username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
+                        <small id="emailHelp" class="form-text text-muted">Мы никогда не передадим вашу электронную почту кому-либо еще.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1 mb-2">Пароль</label>
+                        <input type="password" class="form-control" asp-for="@Model.password"  id="exampleInputPassword1" placeholder="" required="">
+                    </div>
+
+                    <div class="form-check mb-2">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Проверь меня</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary submit mb-4">Войти</button>
+                    <p><a href="/Register/Index"> У вас нет аккаунта?</a></p>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>

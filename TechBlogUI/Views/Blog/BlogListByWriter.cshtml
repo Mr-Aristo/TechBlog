@@ -1,0 +1,55 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+
+@{
+    ViewData["Title"] = "BlogListByWriter";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+<h1>Список блогов по Автору</h1>
+
+<table id="table1" class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Название Блога</th>
+        <th>Дата Создания</th>
+        <th>Категория</th>
+        <th>Статия</th>
+        <th>Удалить</th>
+        <th>Редактировать</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.BlogiD</th>
+            <td>@item.BlogTitle</td>
+            <td>@(((DateTime)item.CreateDate).ToString("dd-MMM-yyyy-h:mm tt"))</td>
+            <td>@item.Category.CategoryName</td>
+
+            @if (item.BlogStatus == true)
+            {
+                <td><a href="#" class="btn btn-inverse-success">Active</a></td>
+
+            }
+            else
+            {
+                <td><a href="#" class="btn btn-inverse-danger">Passive</a></td>
+            }
+
+            <!-- Bu kisimda buton ekledik.Html de bu sekilde buton ekleyebiliyoruz-->
+            @* /Blog/DeleteBlog/@item.BlogiD*@
+            <td><a id="btn1" href="/Blog/DeleteBlog/@item.BlogiD" class="btn btn-danger">Удалить</a></td> <!--Blog(Controller)/DeteleBLog(action)/(action parameter)-->
+            <td><a href="/Blog/EditBlog/@item.BlogiD" class="btn btn-warning">Редактировать</a></td>
+        </tr>
+
+    }
+
+   
+
+</table>
+
+<a href="/Blog/BlogAdd/" class="btn btn-primary">Create New Blog</a>
+

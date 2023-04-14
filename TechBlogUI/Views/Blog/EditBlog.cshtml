@@ -1,0 +1,41 @@
+﻿@model EntityLayer.Concrete.Blog
+
+@{
+    ViewData["Title"] = "EditBlog";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h1>Редактирование Блога</h1>
+<br />
+
+@using (Html.BeginForm("EditBlog", "Blog", FormMethod.Post))
+{
+    <h4 class="font-weight-normal mb-3">   @Html.Label("Blog ID") </h4>
+    @Html.TextBoxFor(x=> x.BlogiD, new{@class="form-control"})
+    <br />
+
+    <h4 class="font-weight-normal mb-3"> @Html.Label("Title")</h4>
+    @Html.TextBoxFor(x=> x.BlogTitle, new{@class="form-control"})
+    <br />
+
+    <h4 class="font-weight-normal mb-3"> @Html.Label("Categories") </h4>
+    @Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.cv,new {@class="form-control"})
+    <br />
+
+    <h4 class="font-weight-normal mb-3">  @Html.Label("Thumbnail Url")</h4>
+    @Html.TextBoxFor(x=> x.BlogThumpnailImage, new{@class="form-control"})
+    <br />
+
+    <h4 class="font-weight-normal mb-3">@Html.Label("Image Path")</h4>
+    @Html.TextBoxFor(x=> x.BlogImage, new{@class="form-control"})
+    <br />
+
+    <h4 class="font-weight-normal mb-3"> @Html.Label("Content")</h4>
+    @Html.TextAreaFor(x=> x.BlogContent,10,3, new{@class="form-control"})
+    <br />
+
+
+    <button class="btn btn-success">Сохранить Изменения</button>
+
+
+}

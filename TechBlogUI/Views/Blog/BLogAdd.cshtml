@@ -1,0 +1,42 @@
+﻿@model EntityLayer.Concrete.Blog
+
+@{
+    ViewData["Title"] = "BLogAdd";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+<h1>Новый Блог</h1>
+<br />
+
+@using (Html.BeginForm("BlogAdd", "Blog", FormMethod.Post)) // Form metod post oldiginda calisacak kisim. Post olmazsa bu isleme girilmeyecek.Bu sebeple controllerda 2 adet action metod var.
+{
+    //Title icin textbox olusturduk ve validasyon islemini cagirdik.
+    <h4 class="font-weight-normal mb-3"> @Html.Label("Blog Title")</h4>
+    @Html.TextBoxFor(x=>x.BlogTitle,new{@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.BlogTitle)
+    <br />
+
+    <h4 class="font-weight-normal mb-3">@Html.Label("Blog Image")</h4>
+    @Html.TextAreaFor(x=>x.BlogImage,new{@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.BlogImage)
+    <br />
+
+    <h4 class="font-weight-normal mb-3">@Html.Label("Blog small Image")</h4>
+    @Html.TextAreaFor(x=>x.BlogImage,new{@class="form-control"})
+    <br />
+
+    <h4 class="font-weight-normal mb-3">@Html.Label("Category")</h4>
+    @Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.cv,new {@class="form-control"})
+    // Bu yapi ile contrllerdan verimizi viewbag ile cektik.
+    <br />
+
+    <h4 class="font-weight-normal mb-3">@Html.Label("Blog Content")</h4>
+    @Html.TextAreaFor(x=>x.BlogContent,10,3,new{@class="form-control"})
+    // 10 ve 3 kismi boyut atamasi icin
+    @Html.ValidationMessageFor(x=>x.BlogContent)
+    <br />
+    <br />
+
+    <button class="btn btn-info">Сохранить Блог</button>
+
+}
+

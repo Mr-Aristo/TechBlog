@@ -1,0 +1,28 @@
+﻿@using TechBlogUI.Controllers
+@model List<EmployeeTest>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Name</td>
+            <td><a href="/Employee/DeleteEmployee/@item.ID" class="btn-outline-danger">Delete</a></td>
+            <td><a  href="/Employee/EditEmployee/@item.ID " class="btn-outline-success">Edit</a></td>
+        </tr>
+
+    }
+
+</table>
+<a href="/Employee/AddEmployee/" class="btn btn-outline-primary">New Employee</a>

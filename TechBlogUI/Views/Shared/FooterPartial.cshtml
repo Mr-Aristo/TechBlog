@@ -1,0 +1,77 @@
+﻿
+
+<footer>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
+                <h3> Насчет </h3>
+
+                <p>
+                    Блог - это слово, которое слышат все. Блоги, известные как веб-сайты, 
+                    Это не те типы сайтов, которые известны как подстраницы. Разные статьи разные 
+                    Это сайт, состоящий из обсуждения вопросов..
+                </p>
+
+                <div class="read">
+                    <a href="/About/Index" class="btn btn-primary read-m">Читай Дальше</a>
+                </div>
+
+            </div>
+
+      @await Component.InvokeAsync("BlogLast3Post")
+
+            <!-- subscribe -->
+            <div class="col-lg-4 subscribe-main footer-grid-agileits-w3ls text-left">
+                <h2>Signup to our newsletter</h2>
+               @await Html.PartialAsync("~/Views/NewsLetter/SubscribeMail.cshtml")
+                <!-- //subscribe -->
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="footer-cpy text-center">
+            <div class="footer-social">
+                <div class="copyrighttop">
+                    <ul>
+                        <li class="mx-3">
+                            <a class="facebook" href="#">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="facebook" href="#">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li class="mx-3">
+                            <a class="facebook" href="#">
+                                <i class="fab fa-google-plus-g"></i>
+                                <span>Google+</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="facebook" href="#">
+                                <i class="fab fa-pinterest-p"></i>
+                                <span>Pinterest</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="w3layouts-agile-copyrightbottom">
+                <p>
+                    © @DateTime.Now.Year Weblog. All Rights Reserved | Design by W3layout | Backend by
+                    <a href="https://github.com/razorbyemre">Emre</a>
+                </p>
+
+            </div>
+        </div>
+
+        <!-- //footer -->
+
+
+    </div>
+</footer>
