@@ -2,10 +2,12 @@
 using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFrameworkRepos;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TechBlogUI.Controllers
 {
+    [AllowAnonymous]
     public class NewsLetterController : Controller
     {
         private INewsLetterService nm;

@@ -38,6 +38,13 @@ namespace DataAccessLayer.Concrete
             //hatanin ismi The entity type 'IdentityUserLogin<string>' requires a primary key to be defined. If you intended to use a keyless entity type, call 'HasNoKey' in 'OnModelCreating'
 
             base.OnModelCreating(modelBuilder);
+
+            //.net 7 server icindeki triggerlari otomatik tanimiyor. Assagidaki sekilde configure edilmeli.
+            modelBuilder.Entity<Blog>()
+             .ToTable(tb => tb.HasTrigger("AddBlogInRaytingTabl"));
+
+            modelBuilder.Entity<Comment>()
+             .ToTable(tb => tb.HasTrigger("AddScoreInCommentss"));
         }
 
 
