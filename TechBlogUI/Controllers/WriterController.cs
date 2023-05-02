@@ -12,6 +12,11 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using System;
 using System.IO;
 using System.Linq;
+using Microsoft.AspNetCore.Identity;
+using DocumentFormat.OpenXml.Office2021.DocumentTasks;
+using System.Threading.Tasks;
+using FluentValidation.Internal;
+using DocumentFormat.OpenXml.Office2019.Drawing.Model3D;
 
 namespace TechBlogUI.Controllers
 {
@@ -19,10 +24,16 @@ namespace TechBlogUI.Controllers
     public class WriterController : Controller
     {
         IWriterService wm;
+        IUserService _user;
 
-        public WriterController(IWriterService wm)
+
+        private readonly UserManager<AppUser> _userManager; //identity sinifi
+
+        public WriterController(IUserService user, IWriterService wm, UserManager<AppUser> userManager)
         {
+            this._userManager = userManager;
             this.wm = wm;
+            this._user = user;
         }
 
         [Authorize] //Yetklendirme atributu. Login olmadan bu sayfa acilmaz.
@@ -65,37 +76,66 @@ namespace TechBlogUI.Controllers
         }
 
         [HttpGet]
-        public IActionResult WriterEditProfile()
+        public async Task<IActionResult> WriterEditProfile()
         {
-            Context c = new Context();
-            var usermail = User.Identity.Name;
-            var writerID = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterID).FirstOrDefault();
-          
-            var value = wm.WriterGetById(writerID);
-            return View(value);
+            UserUpdateViewModel model = new UserUpdateViewModel();
+
+
+            //FindByNameAsync fonksiyonu onemli bir fonksiyon. 
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            model.email = values.Email;
+            model.namesurname = values.NameSurname;
+            model.imageurl = values.ImageUrl;
+            model.username = values.UserName;
+            //Bu kisimda modele atama yapmazsak tarayici tarafinda hata aliz. Modelde birsey donmedigi icin 
+            //hata aliyoruz.
+
+            return View(model);
+
+
+
 
         }
 
         [HttpPost]
-        public IActionResult WriterEditProfile(Writer w)
+        public async Task<IActionResult> WriterEditProfile(UserUpdateViewModel model)
         {
             WriterValidate wl = new WriterValidate();
+            
 
-            ValidationResult results = wl.Validate(w);
+            //identiy ile update islemini model uzerinden gerceklestirdik.
+            //Assagidaki yorum satiri icindeki isleme gerek kalmadi.
+            //Validation islemi implement edildiginde assagidaki yapi kullanilabilir.
 
-            if (results.IsValid)
+
+            //  ValidationResult results = wl.Validate(us);
+            //if (results.IsValid)
+            //{
+            //    wm.WriterUpdate(w);
+            //    return RedirectToAction("Index", "Dashboard");
+            //}
+            //else
+            //{
+            //    foreach (var item in results.Errors)
+            //    {
+            //        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+
+            //    }
+            //}
+
+
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            values.Email = model.email;
+            values.NameSurname = model.namesurname;
+            values.ImageUrl = model.imageurl;
+            values.UserName = model.username;
+            var result = await _userManager.UpdateAsync(values); // var result olmadanda kullanabiliriz.
+            if (result.Succeeded)
             {
-                wm.WriterUpdate(w);
+
                 return RedirectToAction("Index", "Dashboard");
             }
-            else
-            {
-                foreach (var item in results.Errors)
-                {
-                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
-
-                }
-            }
+         
             return View();
 
 

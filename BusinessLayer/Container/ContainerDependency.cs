@@ -35,6 +35,7 @@ namespace BusinessLayer.Container
             services.AddScoped<IWriterService,WriterManager>();
             services.AddScoped<INotificationService,NotificationManager>();
             services.AddScoped<IAdminService,AdminManager>();
+            services.AddScoped<IUserService,UserManager>();
            
             services.AddScoped<IBlogDal, EFBlogRepository>();
             services.AddScoped<IAboutDal, EFAboutRepository>();
@@ -46,6 +47,7 @@ namespace BusinessLayer.Container
             services.AddScoped<IWriterDal, EFWriterRepository>();
             services.AddScoped<INotificationDal, EFNotificationRepository>();
             services.AddScoped<IAdminDal, EFAdminRepository>();
+            services.AddScoped<IUserDal, EFUserRepository>();
 
 
         }

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace EntityLayer.Concrete
 {
@@ -24,6 +25,9 @@ namespace EntityLayer.Concrete
 
         public int WriterID { get; set; } //Blog table da Fk writerid 
         public Writer Writer { get; set; }
+
+      // public int UserID{get ; set; }  
+        //public Users Users { get; set; }
 
         public List<Comment> Comments { get; set; }
     }
