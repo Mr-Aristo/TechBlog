@@ -16,7 +16,7 @@ namespace DataAccessLayer.Concrete
         //mig_identity_add_appuser da aciklama var.
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) // connection string tanimlamak icin bole bir yapi kurduk 
         {
-            optionsBuilder.UseSqlServer("server=.\\sqlexpress; Connect Timeout = 30 ; database=TechBlogDb; integrated security=true;TrustServerCertificate=True;");//Bu fonksiyon icin entitiyframework.core.sqlserver yuklenmesi gereklidir. 
+            optionsBuilder.UseSqlServer("server=DESKTOP-NITC4PN; Connect Timeout = 30 ; database=TechBlogDb; integrated security=true;TrustServerCertificate=True;");//Bu fonksiyon icin entitiyframework.core.sqlserver yuklenmesi gereklidir. 
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
