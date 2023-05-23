@@ -27,7 +27,7 @@
             <td>@item.CategoryName</td>
             <td><a href="#" class="btn btn-danger">Passive</a></td>
             <td><a href="#" class="btn btn-primary">Active</a></td>
-            <td><a href="#" class="btn btn-info">Edit</a></td>
+            <td><a href="/Admin/Category/CategoryEdit/@item.CategoryID" class="btn btn-info">Edit</a></td>
             <td><a href="/Admin/Category/CategoryDelete/@item.CategoryID" id="Deletebtn" onclick="return confirm('Вы уверены, что хотите удалить категорию?');" class="btn btn-danger">Delete</a></td>
          @* href olan adresimizde ../CategoryDelete/.. kismi viewi olmayan controller icinde bulunan fonksiyonumuz.*@
          @* Bir butonla ayni sayfada isleme yapmak istiyorsak bu sekilde kullana biliriz. akctive passive yapma gibi*@

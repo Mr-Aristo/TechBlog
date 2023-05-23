@@ -17,6 +17,7 @@ using DocumentFormat.OpenXml.Office2021.DocumentTasks;
 using System.Threading.Tasks;
 using FluentValidation.Internal;
 using DocumentFormat.OpenXml.Office2019.Drawing.Model3D;
+using System.Windows.Markup;
 
 namespace TechBlogUI.Controllers
 {
@@ -101,12 +102,11 @@ namespace TechBlogUI.Controllers
         public async Task<IActionResult> WriterEditProfile(UserUpdateViewModel model)
         {
             WriterValidate wl = new WriterValidate();
-            
 
+            #region  COMMENT
             //identiy ile update islemini model uzerinden gerceklestirdik.
             //Assagidaki yorum satiri icindeki isleme gerek kalmadi.
             //Validation islemi implement edildiginde assagidaki yapi kullanilabilir.
-
 
             //  ValidationResult results = wl.Validate(us);
             //if (results.IsValid)
@@ -122,6 +122,7 @@ namespace TechBlogUI.Controllers
 
             //    }
             //}
+            #endregion
 
 
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
@@ -129,6 +130,7 @@ namespace TechBlogUI.Controllers
             values.NameSurname = model.namesurname;
             values.ImageUrl = model.imageurl;
             values.UserName = model.username;
+            values.PasswordHash = _userManager.PasswordHasher.HashPassword(values,model.password);
             var result = await _userManager.UpdateAsync(values); // var result olmadanda kullanabiliriz.
             if (result.Succeeded)
             {
@@ -170,5 +172,7 @@ namespace TechBlogUI.Controllers
 
             return RedirectToAction("Index", "Dashboard");
         }
+
+     
     }
 }

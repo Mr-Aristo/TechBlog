@@ -82,9 +82,13 @@ namespace TechBlogUI.Controllers
         [HttpPost]
         public IActionResult BLogAdd(Blog b)
         {
-            //var username = User.Identity.Name;
-            //var usermail = c.Users.Where(x => x.UserName == username).Select(y => y.Email).FirstOrDefault();
-            //var writerID = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterID).FirstOrDefault();
+            Context c = new Context();
+
+            //Blog eklemede identity kullandigimiz icin foreing key hatasi aliyorduk. Asagidaki kod ile idyi basarili bir sekilde cektik.
+            //Islem writer tablosundaki mail ve aspnetuser tablosundaki mail eslesmesiyle yapiliyor.
+            var username = User.Identity.Name;
+            var usermail = c.Users.Where(x => x.UserName == username).Select(y => y.Email).FirstOrDefault();
+            var writerID = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterID).FirstOrDefault();
 
             ValidationResult results = bw.Validate(b); //using FluentValidation.Results; ile kullanilmali yoksa hata aliyoruz.
 
@@ -102,9 +106,8 @@ namespace TechBlogUI.Controllers
             //**************************/
             var val = b.WriterID;
 
-            Context c = new Context();
-            var usermail = User.Identity.Name;
-            var writerID = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterID).FirstOrDefault();
+    
+           
 
             if (results.IsValid)
             {

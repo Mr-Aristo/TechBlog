@@ -39,7 +39,7 @@ namespace TechBlogUI.Controllers
             Context c = new Context();
             cmd.CommentDate = DateTime.Parse(DateTime.Now.ToLongDateString());
             cmd.CommentStatus = true;
-            cmd.BlogID = c.Blogs.Where(c => c.BlogiD == cmd.BlogID).Select(x => x.BlogiD).FirstOrDefault(); 
+            cmd.BlogID = 1;// c.Blogs.Where(c => c.BlogiD == cmd.BlogID).Select(x => x.BlogiD).FirstOrDefault(); 
             cm.CommentAdd(cmd);
 
             return RedirectToAction("BlogReadAll", "Blog", new { id = cmd.BlogID });

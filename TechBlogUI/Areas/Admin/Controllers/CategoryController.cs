@@ -8,6 +8,9 @@ using X.PagedList; // Paging(Sayfalama) islemi icin indirdigimiz paket.
 using BusinessLayer.ValidationRules;
 using FluentValidation.Results;
 using Nest;
+using System.Security.Cryptography.Xml;
+using TechBlogUI.Areas.Admin.Models;
+using Xunit.Abstractions;
 
 namespace TechBlogUI.Areas.Admin.Controllers
 {
@@ -29,10 +32,13 @@ namespace TechBlogUI.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult AddCategory()
+        public IActionResult AddCategory(int id)
         {
+            
+
             return View();
         }
+
 
         [HttpPost]
         public IActionResult AddCategory(Category p)
@@ -59,6 +65,24 @@ namespace TechBlogUI.Areas.Admin.Controllers
             }
 
             return View();
+        }
+        [HttpGet]
+        public IActionResult CategoryEdit(int id)
+        {
+            
+            
+
+            return View();
+        }
+
+
+        [HttpGet]
+        public IActionResult CategoryEdit(Category ct)
+        {
+            ct.CategoryStatus = true;
+            _category.tUpdate(ct);
+
+            return RedirectToAction("Index", "Category");
         }
 
         public IActionResult CategoryDelete(int id)

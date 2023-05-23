@@ -18,6 +18,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime;
 using System.Threading.Tasks;
 
 namespace TechBlogUI
@@ -74,6 +75,14 @@ namespace TechBlogUI
                     x.LoginPath = "/Login/Index";
 
                 });
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+
+                options.LoginPath = "/Login/Index/";
+                options.SlidingExpiration = true; 
+            });
 
         }
 

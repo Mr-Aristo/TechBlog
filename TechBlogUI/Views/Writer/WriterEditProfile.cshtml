@@ -11,13 +11,13 @@
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Edit Profile</h4>
+                <h4 class="card-title">Редактировать</h4>
                 <br/>
                                 
                 
                 <form class="forms-sample" method="post">
                     <div class="form-group">
-                        <label for="exampleInputName1">Name</label>
+                        <label for="exampleInputName1">Имя</label>
                       @*  @Html.TextAreaFor(x=>x.namesurname,new{@class="form-control"})
                         @Html.ValidationMessageFor(x=>x.namesurname) Yapiyi degistirdigimiz icin bu kisma gerek kalmadi*@
                         <input type="text" asp-for="@Model.namesurname" class="form-control">
@@ -25,24 +25,24 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputEmail3">User Name</label>
+                    <label for="exampleInputEmail3">Имя пользователя</label>
                         <input type="text" asp-for="@Model.username" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputEmail3">Email address</label>
+                        <label for="exampleInputEmail3">Почта</label>
                         <input type="text" asp-for="@Model.email" class="form-control">
 
                     </div>
 
                   
 
-                @*    <div class="form-group ">
-                        <label for="exampleInputPassword4">Password</label>
-                        @Html.PasswordFor(x=>x.PasswordHash,new{@class="form-control"})
+                  <div class="form-group ">
+                        <label for="exampleInputPassword4">Пароль</label>
+                        @Html.PasswordFor(x=>x.password,new{@class="form-control"})
                         
-                    </div>*@
-
+                    </div>
+                    
                 @*    <div class="form-group">
                         <label for="exampleSelectGender">Gender</label>
                         <select class="form-control" id="exampleSelectGender">

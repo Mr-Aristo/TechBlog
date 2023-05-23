@@ -23,13 +23,13 @@ namespace TechBlogUI.ViewComponents.Writer
             var username = User.Identity.Name;
             ViewBag.v = username;
             var usermail = c.Users.Where(x=>x.UserName==username).Select(y=> y.Email).FirstOrDefault(); //Mail e gore islem yapacagimiz icin boyle yaptik 
-
+            
             var writerID = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterID).FirstOrDefault();
             var values = wm.GetWriterById(writerID);
 
             return View(values);
         }
-
+        
     }
 }
 

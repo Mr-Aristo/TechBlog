@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 
 namespace TechBlogUI.Controllers  
-{
+{ 
+    //11;41 de kaldik message details calismiyor.!!
+
     public class MessageController : Controller
     {
         private IMessageService mm;
@@ -18,7 +20,7 @@ namespace TechBlogUI.Controllers
 
         public IActionResult InBox()
         {
-            int id = 2;
+            int id = 1;
             var val = mm.GetInboxListByWriter(id);
 
             return View(val);

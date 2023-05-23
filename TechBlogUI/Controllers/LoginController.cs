@@ -52,46 +52,12 @@ namespace TechBlogUI.Controllers
 
         }
 
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Login");
 
-        //[HttpPost]
-        //public async Task<IActionResult> Index(Writer p)
-        //{
-        //    //FirstOrDefault, linq de tek deger getirmek yada sorgulama, islem yapmak icin kullanilir.
-
-        //    Context c = new Context();
-
-        //    var datavalue = c.Writers.FirstOrDefault(x => x.WriterMail == p.WriterMail &&
-        //    x.WriterPassword == p.WriterPassword);
-
-        //    if (datavalue != null)
-        //    {
-        //        //Talep olusturuyoruz. Claims kullanici hakkinda bilgileri tutan yapi.
-        //        var claims = new List<Claim>
-        //        {
-        //            new Claim(ClaimTypes.Name,p.WriterMail)
-
-        //            //new Claim(ClaimTypes. Email, p.WriterMail),
-        //            //new Claim(ClaimTypes. Name, p.WriterID.ToString())
-        //        };
-
-        //        //Alttaki fonksiyounda claims den sonra her hangi bir string girilmelidir.
-        //        //Eğer string parametre girilmezse  kimlik doğrulama olmadan bir oturum başlatılıyor.
-        //        //Bu sebepten hala sistemde hiçbir sayfayı göremez halde oluyoruz. 
-        //        var useridentity = new ClaimsIdentity(claims, "a");
-
-        //        ClaimsPrincipal principal = new ClaimsPrincipal(useridentity);
-
-        //        await HttpContext.SignInAsync(principal);
-
-        //        return RedirectToAction("Index", "Dashboard");
-
-
-        //    }
-        //    else
-        //    {
-        //        return View();
-        //    }
-
+        }
 
     }
 }
