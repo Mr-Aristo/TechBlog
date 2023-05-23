@@ -6,7 +6,7 @@ User can create an account and can create their own blog.To be able to create bl
 In the project there is admin panel which provide to admin to check users, content of comments and blogs. 
 
 ## Structure 
- Projects consist with\ 
+ Projects consist with 
  - .Net Core 6 
  - MVC pattern
  - Dependency injection
