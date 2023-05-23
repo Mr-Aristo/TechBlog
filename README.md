@@ -17,4 +17,49 @@ In the project there is admin panel which provide to admin to check users, conte
  SOLID principles are followed.  
  
  ## Screen Shot
-![1]()
+ ### Main Page
+![](https://github.com/razorbyemre/TechBlog/blob/master/pics%20for%20git/1.png)
+
+ ### About Page
+![](https://github.com/razorbyemre/TechBlog/blob/master/pics%20for%20git/2.png)
+
+### Contact Page
+![](https://github.com/razorbyemre/TechBlog/blob/master/pics%20for%20git/3.png)
+
+### Login Page
+![](https://github.com/razorbyemre/TechBlog/blob/master/pics%20for%20git/4.png)
+
+### Register Page
+![](https://github.com/razorbyemre/TechBlog/blob/master/pics%20for%20git/5.png)
+
+### Writer Dashboard
+![](https://github.com/razorbyemre/TechBlog/blob/master/pics%20for%20git/6.png)
+
+### Edit Profile
+![](https://github.com/razorbyemre/TechBlog/blob/master/pics%20for%20git/7.png)
+
+### Users Blogs
+![](https://github.com/razorbyemre/TechBlog/blob/master/pics%20for%20git/8.png)
+
+### Creat Blog
+![](https://github.com/razorbyemre/TechBlog/blob/master/pics%20for%20git/9.png)
+
+### Notifications 
+![](https://github.com/razorbyemre/TechBlog/blob/master/pics%20for%20git/10.png)
+
+### Excel table for blogs
+![](https://github.com/razorbyemre/TechBlog/blob/master/pics%20for%20git/11.png)
+
+### Category List
+![](https://github.com/razorbyemre/TechBlog/blob/master/pics%20for%20git/12.png)
+
+### Create Category
+![](https://github.com/razorbyemre/TechBlog/blob/master/pics%20for%20git/13.png)
+
+### Admin Dashboard
+![](https://github.com/razorbyemre/TechBlog/blob/master/pics%20for%20git/14.png)\
+
+Project still on developing proccess.
+
+
+
