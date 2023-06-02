@@ -10,7 +10,7 @@ In the project there is admin panel which provide to admin to check users, conte
  - .Net Core 6 
  - MVC pattern
  - Dependency injection
- - Entitiy framework
+ - Entity framework
  - Code First
  - Ajax
  - DRY\
