@@ -1,11 +1,11 @@
 ﻿@using EntityLayer.Concrete
 @model List<Message>
 @{
-    ViewData["Title"] = "InBox";
+    ViewData["Title"] = "SendBox";
     Layout = "~/Views/Shared/WriterLayout.cshtml";
 }
 
-<h1>InBox</h1>
+<h1>SendBox</h1>
 <table class="table table-bordered">
 
     <tr>
@@ -18,20 +18,18 @@
 
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (var item in Model) //null donuyor
     {
 
         <tr>
             <th>@item.MessageID</th>
             <th>@item.Subject</th>
-            <th>@item.SenderUser.WriterName</th>
+            <th>@item.RecieverUser.WriterName</th>
             <th>@item.MessageDate</th>
             <th><a href="/Message/MessageDetails/@item.MessageID" class="btn btn-primary">Открыть Сообщении</a></th>
         </tr>
 
     }
-    
-
 
 </table>
 

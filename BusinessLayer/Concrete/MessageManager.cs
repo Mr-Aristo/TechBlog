@@ -26,7 +26,7 @@ namespace BusinessLayer.Concrete
 
         public List<Message> GetInboxListByWriter(int id)
         {
-            return db.GetListWithMessageByWriter(id);//=> alicinin biz oldugumuz mesaglari getirmesi icin yazilan linq
+            return db.GetInboxtWithMessageByWriter(id);//=> alicinin biz oldugumuz mesaglari getirmesi icin yazilan linq
         }
 
         public List<Message> GetList()
@@ -34,28 +34,28 @@ namespace BusinessLayer.Concrete
            return db.GetListAll();
         }
 
-                 
+        public List<Message> GetSendboxListByWriter(int id)
+        {
+            return db.GetSendboxWithMessageByWriter(id);
+        }
+
         public void tAdd(Message t)
         {
-            throw new NotImplementedException();
+            db.Add(t);
         }
 
 
         public void tDelete(Message t)
         {
-            throw new NotImplementedException();
+            db.Delete(t);
         }
 
 
         public void tUpdate(Message t)
         {
-            throw new NotImplementedException();
+            db.Update(t);
         }
 
-
-        Message IGenericService<Message>.GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

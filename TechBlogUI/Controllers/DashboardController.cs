@@ -1,7 +1,5 @@
 ﻿using BusinessLayer.Abstracts;
-using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete;
-using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 

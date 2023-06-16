@@ -12,4 +12,6 @@ namespace BusinessLayer.Abstracts
         List<About> GetListAbout();
 
     }
+
+    
 }

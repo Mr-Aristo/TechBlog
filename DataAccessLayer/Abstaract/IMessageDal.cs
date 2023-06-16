@@ -9,7 +9,8 @@ namespace DataAccessLayer.Abstaract
 {
     public interface IMessageDal : IGenericRepository<Message>
     {
-        List<Message> GetListWithMessageByWriter(int id);
+        List<Message> GetInboxtWithMessageByWriter(int id);
+        List<Message> GetSendboxWithMessageByWriter(int id);
 
     }
 }

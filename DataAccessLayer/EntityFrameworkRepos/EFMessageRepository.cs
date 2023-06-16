@@ -13,13 +13,22 @@ namespace DataAccessLayer.EntityFrameworkRepos
 {
     public class EFMessageRepository : GenericRepository<Message>, IMessageDal
     {
-        public List<Message> GetListWithMessageByWriter(int id)
+
+        public List<Message> GetInboxtWithMessageByWriter(int id)
         {
             using (var c = new Context())
             {
 
                 return c.Messages.Include(x => x.SenderUser).Where(x => x.RecieverID == id).ToList();
 
+            }
+        }
+
+        public List<Message> GetSendboxWithMessageByWriter(int id)
+        {
+            using (var c = new Context())
+            {
+                return c.Messages.Include(x => x.RecieverUser).Where(y => y.SenderID == id).ToList();
             }
         }
     }

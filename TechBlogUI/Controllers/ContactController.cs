@@ -1,6 +1,4 @@
 ﻿using BusinessLayer.Abstracts;
-using BusinessLayer.Concrete;
-using DataAccessLayer.EntityFrameworkRepos;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

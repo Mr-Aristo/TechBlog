@@ -10,6 +10,9 @@ namespace BusinessLayer.Abstracts
 {
     public interface IUserService : IGenericService<AppUser>
     {
-       
+        Task<List<AppUser>> GetUserAsync();
+    
+
+
     }
 }

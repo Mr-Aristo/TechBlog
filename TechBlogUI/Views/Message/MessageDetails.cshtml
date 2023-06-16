@@ -15,7 +15,7 @@
 @Html.TextBoxFor(x=> x.MessageID, new{@class= "form-control",@readonly="readonly"} )  @*@ReadOnly kismi textboxin editidini iptal etmek icin kullanildi*@
 <br />
 @Html.Label("Subject")
-@Html.TextBoxFor(x=> x.Subject, new{@class= "form-control",disable="disabled"} )
+@Html.TextBoxFor(x=> x.Subject, new{@class= "form-control", disabled = "disabled"} )
 <br />
 @Html.Label("Message")
 @Html.TextAreaFor(x=> x.MessageDetails,10,3, new{@class= "form-control", disabled = "disabled"} ) @*Disable da ayni sebep icin kullanildi*@

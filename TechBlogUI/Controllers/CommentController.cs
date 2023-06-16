@@ -20,6 +20,10 @@ namespace TechBlogUI.Controllers
         {
             this.cm = cm;
         }
+        public CommentController()
+        {
+            
+        }
 
         public IActionResult Index()
         {

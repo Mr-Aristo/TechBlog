@@ -54,10 +54,10 @@ namespace TechBlogUI.Controllers
             {
                 var jsonEmployee = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<EmployeeTest>(jsonEmployee);
-                return RedirectToAction("Index");
+                return View(values);
             }
-
-            return View();
+            return RedirectToAction("Index");
+           
         }
 
         [HttpPost]

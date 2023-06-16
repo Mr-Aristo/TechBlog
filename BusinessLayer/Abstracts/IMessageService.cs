@@ -11,6 +11,7 @@ namespace BusinessLayer.Abstracts
     {
 
         List<Message> GetInboxListByWriter(int id);
+        List<Message> GetSendboxListByWriter(int id);
         
     }
 }

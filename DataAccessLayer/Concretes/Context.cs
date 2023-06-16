@@ -18,7 +18,7 @@ namespace DataAccessLayer.Concrete
         {
             optionsBuilder.UseSqlServer("server=DESKTOP-NITC4PN; Connect Timeout = 30 ; database=TechBlogDb; integrated security=true;TrustServerCertificate=True;");//Bu fonksiyon icin entitiyframework.core.sqlserver yuklenmesi gereklidir. 
         }
-
+        //entitiyframework.core.tool eklenmezse migration lar aktif edliemez. Hata verir.
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Message>()

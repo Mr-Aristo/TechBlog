@@ -10,5 +10,7 @@ namespace TechBlogUI.Controllers
         {
             return View();
         }
+
+      
     }
 }

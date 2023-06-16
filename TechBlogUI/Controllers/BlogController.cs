@@ -17,13 +17,13 @@ namespace TechBlogUI.Controllers
 {
     public class BlogController : Controller
     {
-        //rr
-      readonly IBlogService bm ; //Dependency injection ile yaptik
-       // BlogManager bm = new BlogManager(new EFBlogRepository());
+
+        readonly IBlogService bm; //Dependency injection ile yaptik
+                                  // BlogManager bm = new BlogManager(new EFBlogRepository());
         CategoryManager cm = new CategoryManager(new EFCategoryRepository());
         WriterManager wm = new WriterManager(new EFWriterRepository());
         BlogValidator bw = new BlogValidator();
-        
+
         Context c = new Context();
 
         public BlogController(IBlogService bm)
@@ -31,6 +31,7 @@ namespace TechBlogUI.Controllers
             this.bm = bm;
         }
 
+       
         [AllowAnonymous]
         public IActionResult Index()
         {
@@ -42,8 +43,8 @@ namespace TechBlogUI.Controllers
         [AllowAnonymous]
         public IActionResult BlogReadAll(int id)
         {
-       
-            
+
+
             ViewBag.i = id;
             var values = bm.GetBlogByID(id);
             return View(values);
@@ -53,7 +54,7 @@ namespace TechBlogUI.Controllers
         {
 
             Context c = new Context();
-           var username = User.Identity.Name;
+            var username = User.Identity.Name;
             var usermail = c.Users.Where(x => x.UserName == username).Select(y => y.Email).FirstOrDefault();
             var writerID = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterID).FirstOrDefault();
             var values = bm.GetListWithListByWriterBM(writerID);
@@ -106,8 +107,8 @@ namespace TechBlogUI.Controllers
             //**************************/
             var val = b.WriterID;
 
-    
-           
+
+
 
             if (results.IsValid)
             {
@@ -134,10 +135,10 @@ namespace TechBlogUI.Controllers
 
 
         #region Blog Delete
-        
+
         public IActionResult DeleteBlog(int id)
         {
-           
+
             var blogvalue = bm.TGetById(id);
 
             bm.BlogDelete(blogvalue);
@@ -185,5 +186,7 @@ namespace TechBlogUI.Controllers
 
         #endregion
 
+
+       
     }
 }

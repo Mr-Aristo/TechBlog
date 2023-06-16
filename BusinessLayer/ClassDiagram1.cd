@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BusinessLayer.Concrete.AboutManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Concrete\AboutManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BusinessLayer.Concrete.AdminManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAACAAAAAAAAAAABAAAAABAII=</HashCode>
+      <FileName>Concrete\AdminManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BusinessLayer.Concrete.BlogManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAACAAAAAAEAAAAAAAAQAAAEAAEKEgI=</HashCode>
+      <FileName>Concrete\BlogManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BusinessLayer.Concrete.CategoryManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAACAAAAAAAAAAABAgAAAAAII=</HashCode>
+      <FileName>Concrete\CategoryManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BusinessLayer.Concrete.CommentManager" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgCAAAAAAAAAQAAAAAAACAAAAEAAAAAAAAAAAAII=</HashCode>
+      <FileName>Concrete\CommentManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BusinessLayer.Concrete.ContactManager" BaseTypeListCollapsed="true">
+    <Position X="9" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Concrete\ContactManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BusinessLayer.Concrete.MessageManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAwAAAAAACAACABAAAAAAAAABAAAAAAAII=</HashCode>
+      <FileName>Concrete\MessageManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BusinessLayer.Concrete.NewsLetterManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Concrete\NewsLetterManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BusinessLayer.Concrete.NotificationManager" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAACAACAAAAAAAAAAABAAAAAAAII=</HashCode>
+      <FileName>Concrete\NotificationManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.263" Collapsed="true" />
+  </Class>
+  <Class Name="BusinessLayer.Concrete.UserManager" BaseTypeListCollapsed="true">
+    <Position X="7.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAACAAABAAAAAAABAAAQAAAII=</HashCode>
+      <FileName>Concrete\UserManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BusinessLayer.Concrete.WriterManager" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAARAAAAQAAAAAAAAAAAAAAAACAAAAAACAA=</HashCode>
+      <FileName>Concrete\WriterManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="BusinessLayer.Abstracts.IAboutService" Collapsed="true">
+    <Position X="6.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstracts\IAboutService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BusinessLayer.Abstracts.IAdminService" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstracts\IAdminService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BusinessLayer.Abstracts.IBlogService" Collapsed="true">
+    <Position X="3.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAACAAAAAAEAAAAAAAAQAAAEAAECEgI=</HashCode>
+      <FileName>Abstracts\IBlogService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BusinessLayer.Abstracts.ICategoryService" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstracts\ICategoryService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BusinessLayer.Abstracts.ICommentService" Collapsed="true">
+    <Position X="8.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgCAAAAAAAAAQAAAAAAAAAAAAEAAAAAAAAAAAAII=</HashCode>
+      <FileName>Abstracts\ICommentService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BusinessLayer.Abstracts.IContactService" Collapsed="true">
+    <Position X="10" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstracts\IContactService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BusinessLayer.Abstracts.IGenericService&lt;T&gt;" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAACAAAAAAAAAAABAAAAAAAII=</HashCode>
+      <FileName>Abstracts\IGenericService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BusinessLayer.Abstracts.IMessageService" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstracts\IMessageService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BusinessLayer.Abstracts.INewsLetterService" Collapsed="true">
+    <Position X="2" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstracts\INewsLetterService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BusinessLayer.Abstracts.INotificationService" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstracts\INotificationService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BusinessLayer.Abstracts.IUserService" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Abstracts\IUserService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BusinessLayer.Abstracts.IWriterService" Collapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAABAAAAQAAAAAAAAAAAAAAAACAAAAAACAA=</HashCode>
+      <FileName>Abstracts\IWriterService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

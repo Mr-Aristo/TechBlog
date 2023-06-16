@@ -1,0 +1,49 @@
+﻿@model EntityLayer.Concrete.Message
+
+@{
+    ViewData["Title"] = "SendMessage";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h1>Отправить Сообщение</h1>
+<br />
+
+@using (Html.BeginForm("SendMessage", "Message", FormMethod.Post)) // Form metod post oldiginda calisacak kisim. Post olmazsa bu isleme girilmeyecek.Bu sebeple controllerda 2 adet action metod var.
+{
+    //Title icin textbox olusturduk ve validasyon islemini cagirdik.
+    <h4 class="font-weight-normal mb-3"> @Html.Label("Получатель")</h4>
+    <input type="text" class="form-control" />
+    <br />
+
+    @*  <div class="form-row">
+
+        <div class="col-md-12 mb-3">
+
+            <label for="RecieverID">Alıcı Seçimi</label>
+
+            @Html.DropDownListFor(x=>x.RecieverID, (List<SelectListItem>)ViewBag.RecieverUser, new{@class="form-control"})
+
+        </div>
+
+    </div>*@
+
+
+    <h4 class="font-weight-normal mb-3"> @Html.Label("Тема")</h4>
+    @Html.TextBoxFor(x=>x.Subject,new{@class="form-control"})
+    <br />
+
+
+    @* <h4 class="font-weight-normal mb-3">@Html.Label("Category")</h4>
+    @Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.cv,new {@class="form-control"})
+    // Bu yapi ile contrllerdan verimizi viewbag ile cektik.
+    <br />*@
+
+    <h4 class="font-weight-normal mb-3">@Html.Label("Сообщение")</h4>
+    @Html.TextAreaFor(x=>x.MessageDetails,10,3,new{@class="form-control"})
+    // 10 ve 3 kismi boyut atamasi icin
+
+    <br />
+    <br />
+
+    <button class="btn btn-info"> Отправить </button>
+}

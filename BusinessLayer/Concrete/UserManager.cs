@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Abstracts;
 using DataAccessLayer.Abstaract;
+using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +30,14 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public async Task<List<AppUser>> GetUserAsync()
+        {
+            using (Context c = new Context())
+            {
+              return await c.Users.ToListAsync();
+            }
+        }
+
         public void tAdd(AppUser t)
         {
             throw new NotImplementedException();
@@ -42,5 +52,7 @@ namespace BusinessLayer.Concrete
         {
             _userDal.Update(t);
         }
+
+
     }
 }
