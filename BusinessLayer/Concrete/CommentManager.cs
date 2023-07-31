@@ -17,6 +17,14 @@ namespace BusinessLayer.Concrete
             _commentdal = commentdal;
             
         }
+
+
+        public List<Comment> GetListWithBlog()
+        {
+            return _commentdal.GetListWithBlog();
+        }
+
+
         public void CommentAdd(Comment comment)
         {
             _commentdal.Add(comment);
@@ -45,5 +53,6 @@ namespace BusinessLayer.Concrete
         {
             return _commentdal.GetListAll();
         }
+
     }
 }

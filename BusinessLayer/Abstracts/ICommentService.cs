@@ -16,5 +16,7 @@ namespace BusinessLayer.Abstracts
         List<Comment> GetList(int id );
         List<Comment> GetAllList();
         Comment GetById(int id);
+
+        List<Comment> GetListWithBlog();
     }
 }

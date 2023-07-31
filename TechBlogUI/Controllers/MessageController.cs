@@ -21,9 +21,10 @@ namespace TechBlogUI.Controllers
         private IUserService _userService;
         Context c = new Context();
 
-        public MessageController(IMessageService mm)
+        public MessageController(IMessageService mm, IUserService user)
         {
             this.mm = mm;
+            this._userService = user;
         }
 
         public IActionResult InBox()
@@ -61,32 +62,33 @@ namespace TechBlogUI.Controllers
             var writerID = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterID).FirstOrDefault();
             var values = mm.GetSendboxListByWriter(writerID);
 
-            return View();
+            return View(values);
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> SendMessage(Message s)
+        public IActionResult SendMessage(Message s)
         {
             var username = User.Identity.Name;
             var usermail = c.Users.Where(x => x.UserName == username).Select(y => y.Email).FirstOrDefault();
             var writerID = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterID).FirstOrDefault();
 
-            List<SelectListItem> recieverUsers = (from x in await _userService.GetUserAsync()
+            //List<SelectListItem> recieverUsers = (from x in await _userService.GetUserAsync()
 
-                                                  select new SelectListItem
+            //                                      select new SelectListItem
 
-                                                  {
+            //                                      {
 
-                                                      Text = x.Email.ToString(),
+            //                                          Text = x.Email.ToString(),
 
-                                                      Value = x.Id.ToString()
+            //                                          Value = x.Id.ToString()
 
-                                                  }).ToList();
-            ViewBag.RecieverUser = recieverUsers;
+            //                                      }).ToList();
+            //ViewBag.RecieverUser = recieverUsers;
+
 
             s.SenderID = writerID;
-            s.RecieverID = 1;
+            s.RecieverID = 1;// bu kisim dinamiklestirilmeli. kullanici mailine gore id cekmeli.!!!!
             s.MessageStatus = true;
             s.MessageDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             mm.tAdd(s);

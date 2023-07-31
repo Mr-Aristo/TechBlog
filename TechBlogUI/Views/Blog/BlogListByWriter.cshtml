@@ -24,7 +24,8 @@
     @foreach (var item in Model)
     {
         <tr>
-            <th>@item.BlogiD</th>
+            @*<th>@item.BlogiD</th>*@
+            <td><img src="@item.BlogImage" class="rounded-circle" width="50" height="50" asp-append-version= "true" /></td>
             <td>@item.BlogTitle</td>
             <td>@(((DateTime)item.CreateDate).ToString("dd-MMM-yyyy-h:mm tt"))</td>
             <td>@item.Category.CategoryName</td>
@@ -47,7 +48,7 @@
 
     }
 
-   
+
 
 </table>
 

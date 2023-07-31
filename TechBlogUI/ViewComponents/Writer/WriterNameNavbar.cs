@@ -8,6 +8,12 @@ namespace TechBlogUI.ViewComponents.Writer
     public class WriterNameNavbar:ViewComponent
     {
         IWriterService _writerService;
+
+        public WriterNameNavbar(IWriterService writerService)
+        {
+            _writerService = writerService;
+        }
+
         Context c = new Context();
         public IViewComponentResult Invoke()
         {

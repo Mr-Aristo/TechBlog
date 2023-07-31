@@ -12,11 +12,14 @@ using System.Linq;
 using DataAccessLayer.Concrete;
 using BusinessLayer.Abstracts;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace TechBlogUI.Controllers
 {
     public class BlogController : Controller
     {
+        private readonly IWebHostEnvironment _webHost;
 
         readonly IBlogService bm; //Dependency injection ile yaptik
                                   // BlogManager bm = new BlogManager(new EFBlogRepository());
@@ -26,9 +29,10 @@ namespace TechBlogUI.Controllers
 
         Context c = new Context();
 
-        public BlogController(IBlogService bm)
+        public BlogController(IBlogService bm, IWebHostEnvironment webHost)
         {
             this.bm = bm;
+            this._webHost = webHost;
         }
 
        
@@ -49,6 +53,7 @@ namespace TechBlogUI.Controllers
             var values = bm.GetBlogByID(id);
             return View(values);
         }
+
         [AllowAnonymous]
         public IActionResult BlogListByWriter()
         {
@@ -129,6 +134,22 @@ namespace TechBlogUI.Controllers
 
             return View();
         }
+
+        //private string UploadFile(Blog bl)
+        //{
+        //    string fileName = null;
+        //    if (bl.BlogImage != null)
+        //    {
+        //        string uploadDir = Path.Combine(_webHost.WebRootPath, "images");
+        //        fileName = Guid.NewGuid().ToString() + "-" + bl.BlogImage.FileName;
+        //        string filePath = Path.Combine(uploadDir, fileName);
+        //        using (var fileStream= new FileStream(filePath, FileMode.Create))
+        //        {
+        //            bl.BlogImage.CopyTo(fileStream);
+        //        }
+        //    }
+        //}
+
 
         #endregion
 

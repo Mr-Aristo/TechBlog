@@ -9,5 +9,6 @@ namespace DataAccessLayer.Abstaract
 {
     public interface ICommentDal : IGenericRepository<Comment>
     {
+        List<Comment> GetListWithBlog();//Bu fonksiyon admin tarafinda commentleri blog id ile birlikte cekebilmek icin olusturuldu.
     }
 }

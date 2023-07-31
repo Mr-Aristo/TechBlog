@@ -39,17 +39,15 @@ namespace TechBlogUI
         public void ConfigureServices(IServiceCollection services)
         {
             //******************//
-            services.AddDbContext<Context>();
+            services.AddDbContext<Context>(); 
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
             //RegisterUserController de yaptigimiz islemin hata almadan yapilmasi icin
             //Bu service leri eklemeliyiz.
             //******************//
             services.AddControllersWithViews();
 
-
-
             services.Dependencies(); //<=  services.AddScoped<IBlogService, BlogManager>();services.AddScoped<IBlogDal, EFBlogRepository>();
-
+            //Services.Dependencies,BussinessLater Container dan cekildi. Referans edilmesi gerek. 
 
             // Bu kisim login controllerde kullandigimis HttpContext.Session icin.
             // services.AddSession(); //=> bu kismi login de baska bir yontem kullandigimiz icin iptal ettik.            

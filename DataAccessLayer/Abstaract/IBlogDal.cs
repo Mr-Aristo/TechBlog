@@ -9,7 +9,7 @@ namespace DataAccessLayer.Abstaract
 {
     public interface IBlogDal: IGenericRepository<Blog>
     {
-        List<Blog> GetListWithCategory();
+        List<Blog> GetListWithCategory(); // Bu fonksiyon bloglari kategory id ile cekebilmek icin tanimlandi. Bu sayede category entityede erisebilecez.
         List<Blog> GetListWithCategoryByWriter(int id);
     }
 }
