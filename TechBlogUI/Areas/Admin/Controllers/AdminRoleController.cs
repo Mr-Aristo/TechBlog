@@ -129,7 +129,7 @@ public class AdminRoleController : Controller
         var user = _userManager.Users.FirstOrDefault(x => x.Id == id);
         var roles = _roles.Roles.ToList();
 
-       TempData["Userid"] = user.Id; //TempData is used to transfer data from view to controller
+        TempData["Userid"] = user.Id; //TempData is used to transfer data from view to controller
                                       //, controller to view, or from one action method to another
                                       //action method of the same or a different controller. 
                                       //Like Viewbag
@@ -143,14 +143,38 @@ public class AdminRoleController : Controller
 
             m.RoleId = item.Id;
             m.Name = item.Name;
-            m.Exist = userRoles.Contains(item.Name);//Bu kullanicinin sahip holdugu rollri tru false olarak cevirecekl
+            m.Exist = userRoles.Contains(item.Name);//Bu kullanicinin sahip oldugu rolleri tru false olarak cevirecek. Role de ismi olan kullanici
+            //true olacak ve viewde checkbox de tik isareti ile gostere bilecegiz.
             model.Add(m);
 
         }
 
-
         return View(model);
 
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> AssignRole(List<RoleAssignViewModel> model)
+    {
+
+        var userID = (int)TempData["UserId"]; //(int) kullanmazsak assagidaki satirda hata aliyoruz.
+        var user = _userManager.Users.FirstOrDefault(x => x.Id == userID);//Operator 'operator' cannot be applied to operands of type 'int' and 'object'
+
+        foreach (var item in model)
+        {
+            if(item.Exist)
+            {
+                await _userManager.AddToRoleAsync(user, item.Name);//Bu kisimda checkbox daki secili olan rolleri kisiye ekleyecek.
+                // HATA! : AspNetRoles icinde normalizename isimli kisim (rolun buyuk harf ile yazilisi) bos ise view hata veriyor.
+
+            }
+            else
+            {
+                await _userManager.RemoveFromRoleAsync(user, item.Name);//Burada da secili olani secmezsek rol silinecek.
+            }
+        }
+
+        return RedirectToAction("UserRoleList");
 
     }
 
