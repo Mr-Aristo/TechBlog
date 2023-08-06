@@ -1,6 +1,7 @@
 ﻿using DocumentFormat.OpenXml.Office2010.ExcelAc;
 using DocumentFormat.OpenXml.Presentation;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,8 @@ using TechBlogUI.Areas.Admin.Models;
 namespace TechBlogUI.Areas.Admin.Controllers;
 
 [Area("Admin")]
+[Authorize(Roles ="Admin")]//Yetkilendirme islemi: "Admin" veri tabaninda bulunan yetkinin adi.
+//Bu kontroller icinde olan fonk ve viewlere admin olan disinda kimse erisemeyecek.
 public class AdminRoleController : Controller
 {
     private readonly RoleManager<AppRole> _roles; // rolemanager using Microsoft.AspNetCore.Identity in bir parcasi

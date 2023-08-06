@@ -59,6 +59,10 @@ namespace TechBlogUI.Controllers
 
         }
 
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
     }
 }
 
