@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Concrete;
+﻿using BusinessLayer.Abstracts;
+using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFrameworkRepos;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,7 +7,12 @@ namespace TechBlogUI.ViewComponents.Writer
 {
     public class WriterNotification : ViewComponent
     {
-        NotificationManager nm = new NotificationManager(new EFNotificationRepository());
+        private readonly INotificationService nm;
+
+        public WriterNotification(INotificationService nm)
+        {
+            this.nm = nm;
+        }
 
         public IViewComponentResult Invoke()
         {

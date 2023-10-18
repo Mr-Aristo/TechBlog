@@ -13,7 +13,9 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EFBlogRepository : GenericRepository<Blog>, IBlogDal
     {
-        
+        public EFBlogRepository(Context dbContext) : base(dbContext)
+        {
+        }
 
         public List<Blog> GetListWithCategory()
         {

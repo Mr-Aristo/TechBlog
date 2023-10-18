@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Concrete;
+﻿using BusinessLayer.Abstracts;
+using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
@@ -12,7 +13,14 @@ namespace TechBlogUI.ViewComponents.Writer
 {
     public class WritertAboutOnDashboard : ViewComponent
     {
-        WriterManager wm = new WriterManager(new EFWriterRepository());
+   
+        readonly IWriterService wm;
+
+        public WritertAboutOnDashboard(IWriterService wm)
+        {
+            this.wm = wm;
+        }
+
         Context c = new Context();
 
 

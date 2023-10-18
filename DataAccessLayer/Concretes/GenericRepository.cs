@@ -21,48 +21,48 @@ namespace DataAccessLayer.Concretes
             // _dbSet = _context.Set<T>();
         }
 
-        public GenericRepository() { }
+        
 
         public void Add(T entity)
         {
-            using var c = new Context();
-            c.Add(entity);
-            c.SaveChanges();
+
+            _context.Add(entity);
+            _context.SaveChanges();
         }
 
         public void Delete(T entity)
         {
             using var c = new Context();
-            c.Remove(entity);
-            c.SaveChanges();
+            _context.Remove(entity);
+            _context.SaveChanges();
         }
 
 
         List<T> IGenericRepository<T>.GetListAll()
         {
             using var c = new Context();
-            return c.Set<T>().ToList();
+            return _context.Set<T>().ToList();
 
         }
 
         public T GetById(int id)
         {
             using var c = new Context();
-            return c.Set<T>().Find(id);
+            return _context.Set<T>().Find(id);
 
         }
 
         public void Update(T entity)
         {
             using var c = new Context();
-            c.Update(entity);
-            c.SaveChanges();
+            _context.Update(entity);
+            _context.SaveChanges();
         }
 
         public List<T> GetListAll(Expression<Func<T, bool>> filter)
         {
             using var c = new Context();
-            return c.Set<T>().Where(filter).ToList();
+            return _context.Set<T>().Where(filter).ToList();
         }
     }
 }

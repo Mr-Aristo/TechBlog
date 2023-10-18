@@ -23,8 +23,8 @@ namespace TechBlogUI.Controllers
 
         readonly IBlogService bm; //Dependency injection ile yaptik
                                   // BlogManager bm = new BlogManager(new EFBlogRepository());
-        CategoryManager cm = new CategoryManager(new EFCategoryRepository());
-        WriterManager wm = new WriterManager(new EFWriterRepository());
+        readonly ICategoryService cm;
+        readonly IWriterService wm;
         BlogValidator bw = new BlogValidator();
 
         Context c = new Context();

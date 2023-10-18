@@ -13,6 +13,9 @@ namespace DataAccessLayer.EntityFrameworkRepos
 {
     public class EFMessageRepository : GenericRepository<Message>, IMessageDal
     {
+        public EFMessageRepository(Context dbContext) : base(dbContext)
+        {
+        }
 
         public List<Message> GetInboxtWithMessageByWriter(int id)
         {

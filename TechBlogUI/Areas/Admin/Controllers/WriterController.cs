@@ -25,6 +25,7 @@ namespace TechBlogUI.Areas.Admin.Controllers
 
             return Json(serialize);
         }
+
         public IActionResult GetWriterByID(int writerId)
         {
             var findWriter = writers.FirstOrDefault(x => x.Id == writerId);

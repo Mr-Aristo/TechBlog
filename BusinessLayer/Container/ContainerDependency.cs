@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Container
 {
-    public static class ContainerDependency
+    public static class ContainerDependency // Microsoft.Extensions.DependencyInjection.Abstractions indirilmeli.
     {
         //Bu kisim start upta yer kaplamamasi ve kodun okunabilir olmasi icin olusuturuldu.
         //Bu classi start up da cagirip yine startup da bulunan IServiceCollecton objesini

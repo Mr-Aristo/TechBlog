@@ -13,6 +13,10 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EFCommentRepository : GenericRepository<Comment>, ICommentDal
     {
+        public EFCommentRepository(Context dbContext) : base(dbContext)
+        {
+        }
+
         public List<Comment> GetListWithBlog()
         {
             using (var c = new Context())

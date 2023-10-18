@@ -17,8 +17,12 @@ namespace DataAccessLayer.Concrete
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) // connection string tanimlamak icin bole bir yapi kurduk 
         {
             optionsBuilder.UseSqlServer("server=DESKTOP-NITC4PN; Connect Timeout = 30 ; database=TechBlogDb; integrated security=true;TrustServerCertificate=True;");//Bu fonksiyon icin entitiyframework.core.sqlserver yuklenmesi gereklidir. 
+            //optionsBuilder.UseSqlServer("workstation id=Techblogdb.mssql.somee.com;packet size=4096;user id=mr-aristo_SQLLogin_1;pwd=55x2tkgrxp;" +
+            //    "data source=Techblogdb.mssql.somee.com;persist " +
+            //    "security info=False;initial catalog=Techblogdb"); 
         }
         //entitiyframework.core.tool eklenmezse migration lar aktif edliemez. Hata verir.
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Message>()

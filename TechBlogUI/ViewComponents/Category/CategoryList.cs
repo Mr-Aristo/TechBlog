@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Concrete;
+﻿using BusinessLayer.Abstracts;
+using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,8 +7,13 @@ namespace TechBlogUI.ViewComponents.Category
 {
     public class CategoryList : ViewComponent 
     {
-        CategoryManager cm = new CategoryManager(new EFCategoryRepository());
-        
+        readonly ICategoryService cm;
+
+        public CategoryList(ICategoryService cm)
+        {
+            this.cm = cm;
+        }
+
         public IViewComponentResult Invoke()
         {
             var val = cm.GetList();

@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Abstaract;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.Concretes;
 using EntityLayer.Concrete;
 using System;
@@ -11,6 +12,8 @@ namespace DataAccessLayer.EntityFrameworkRepos
 {
     public class EFAdminRepository : GenericRepository<Admin>, IAdminDal
     {
-
+        public EFAdminRepository(Context dbContext) : base(dbContext)
+        {
+        }
     }
 }
